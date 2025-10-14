@@ -1,0 +1,56 @@
+# Assignment 1
+
+## Libraries
+"search.py" is used from the AIMA code repository on Github: https://github.com/aimacode/aima-python
+
+
+## Python version
+This program runs on version 3.9.1.
+
+
+## Usage
+All problems will print automatically following the main function running. Problem 1 puts the solution in an output file 'solution_waterjug.txt'. Problem 2 prints the number of expanded paths and paths remaining in the fronteir, and puts the solutions for all 4 heuristics in an output file 'solutions_8P.txt'. Problem 3 prints the paths expanded and paths in the fronteir for the A* search, and puts the solutions and analysis for both methods in an output file 'solutions_dating.txt'. Problem 4 prints the depth accessed, all nodes accessed, and path cost of the optimal solution, with no output file.
+
+
+### Problem 1:
+Problem one implements a class "WaterJug43", where there is a water jug of volume 4 (jug4) and another of length 3 (jug3). The state is represented as a tuple, where the first item is content of jug4 and the second is content of jug3. The goal is a similar tuple.
+The function 'store_solution_Q1' initiates the problem, searches for the solution with Breadth First Graph Search, and puts the solution path and actions in the output file.
+
+To call to run outside of main():
+    store_solution_Q1(initial, goal)
+
+
+### Problem 2:
+Problem two implements a class "AltEightPuzzle", which implements the classic 8-puzzle. The  The state is represented as a tuple of length 9, beginning at the top right and following in row order from left-to-right, beginning each new row at the left.   
+This problem also implements a class "n_max_swap", which searches to find the n_max_swap heuristic (which will be utilized as an option for AltEightPuzzle's search)
+The AltEightPuzzle class implements a Nilsson's distance heuristic as well.
+The function 'comparison_Q2' initiates the problem, searches for the solution with each of four heuristics:
+1. Misplaced Tiles Heuristic
+2. Manhattan Distance Heuristic
+3. N Max Swap Heuristic
+4. Nilsson's Distance Heuristic (which is not admissible)
+and puts the solution path and actions in the output file.
+
+To call to run outside of main():
+    comparison_Q2(initial, goal)
+
+
+### Problem 3:
+Problem one implements a class "dating_game", where the state is a row of chairs represented by a tuple of length 7, populated with three Men (represented by a 1 value), three Women (2 value), and one empty seat (0 value). Initial state and goal state follow this formula.
+The function "comparison_Q3" implements this problem with each of the following methods:
+1. A* with any_swap heuristic
+2. Depth Limited Search
+This function writes the solution path and actions in the output file.
+
+To call to run outside of main():
+    comparison_Q3(initial, goal)
+
+
+### Problem 4:
+Problem four implements a class "GridWorld". The state is the location of the agent as a tuple of length 2, where the y coordinate is first and the x coordinate is second in the pair. The goal is a similar state, which is the location of the gold/goal the agent is seeking.
+This problem implements iterative deepening with A* search, where the heuristic of use is the manhattan distance. This function creates a f_list to find the f value of each node expanded on each depth pass, and will select the lowest of these new f values for the next depth after it completes at the first depth.
+This problem will print every node visited and the action to get there, and the path cost of the ideal solution will print at the end.
+
+To call to run outside of main():
+    iterative_deepening_astar_search(GridWorld(initial, goal))
+
